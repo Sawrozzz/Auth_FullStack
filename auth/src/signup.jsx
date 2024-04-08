@@ -10,14 +10,10 @@ const SignUpForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("clicked");
-    // await fetch("http://localhost:3001/register", {
-    //   method: "POST",
-    //   body: JSON.stringify({ name, email, password }),
-    // })
-    axios.post('http://localhost:3001/register',{name, email, password})
-      .then(result => console.log(result))
-      .catch(err => console.log(err));
+    axios
+      .post("http://localhost:3001/register", { name, email, password })
+      .then((result) => console.log(result))
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -37,7 +33,7 @@ const SignUpForm = () => {
             placeholder="Enter your name"
             name="name"
             autoComplete="off"
-            onClick={(e) => {
+            onChange={(e) => {
               setName(e.target.value);
             }}
           />
@@ -52,7 +48,7 @@ const SignUpForm = () => {
             placeholder="Enter your email"
             name="email"
             autoComplete="off"
-            onClick={(e) => {
+            onChange={(e) => {
               setEmail(e.target.value);
             }}
           />
@@ -67,7 +63,7 @@ const SignUpForm = () => {
             placeholder="Enter your password"
             name="password"
             autoComplete="off"
-            onClick={(e) => {
+            onChange={(e) => {
               setPassword(e.target.value);
             }}
           />
